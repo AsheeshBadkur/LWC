@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Account Info">
+        <lightning-input data-formfield="Acc" type="text" label="Account Name" placeholder="Enter Account Name"></lightning-input><br/>
+            <lightning-combobox
+            name="Rating"
+            label="Select Rating"
+            value={value}
+            placeholder="Select Rating"
+            options={SelectRatingOptions}
+            onchange={dataHandler} >
+        
+        </lightning-combobox><br/>
+             <lightning-combobox
+            name="SLA__c"
+            label="Select SLA"
+            value={value}
+            placeholder="Select SLA"
+            options={SelectSLAOptions}
+            onchange={slaHandler} >
+
+        </lightning-combobox><br/>
+
+        <lightning-button variant="brand" label="Submit" onclick={handleAccount}></lightning-button><br/>
+    </lightning-card>
+</template>

@@ -1,0 +1,24 @@
+<template>
+<lightning-card title="Applicant Form">
+    <lightning-input data-formfield="name" type="text" label="Full Name" placeholder="Enter Full Name"></lightning-input><br/>
+    <lightning-input data-formfield="email" type="email" label="Email" placeholder="Enter Email"></lightning-input><br/>
+    <lightning-input data-formfield="date" type="date" label="Date of Birth" placeholder="Enter DOB"></lightning-input><br/>
+<lightning-combobox data-formfield="gender" label="Gender" placeholder="Select Gender" options={genderOptions}></lightning-combobox><br/>
+
+  <lightning-button variant="brand" label="Show" onclick={ShowClick}></lightning-button><br/>
+    <template if:true={name}>
+    <br/>
+    <div>
+        you have entered:
+        <br/>
+        Name: {name}
+        <br/>
+        Email: {email}
+        <br/>
+        Date of Birth: {date}
+        <br/>
+        Gender: {gender}
+    </div>
+</template>
+</lightning-card>
+</template>

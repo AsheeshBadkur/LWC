@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Applicant Search">
+        <lightning-input data-formfield="App" type="text" label="Applicant Id" placeholder="Enter Applicant Id"></lightning-input><br/>
+        <lightning-button variant="success"  label="Search" onclick={searchAppHandler}></lightning-button><br/>
+     <br/>
+
+        <div>
+            First Name = {objApp.First_Name__c}<br/>
+            Last Name = {objApp.Last_Name__c}<br/>
+            Gender = {objApp.Gender__c}<br/>
+            Created Date = <lightning-formatted-date-time value={objApp.CreatedDate}></lightning-formatted-date-time>
+        </div>
+    </lightning-card>
+</template>

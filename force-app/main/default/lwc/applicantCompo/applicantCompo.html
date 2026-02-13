@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Applicant Info">
+        <lightning-input data-formfield="First_Name__c" type="text" label="First Name" placeholder="Enter First Name"></lightning-input><br/>
+        <lightning-input data-formfield="Last_Name__c" type="text" label="Last Name" placeholder="Enter Last Name"></lightning-input><br/>
+        <lightning-input data-formfield="Email_ID__c" type="email" label="Email" placeholder="Enter Email"></lightning-input><br/>
+        <lightning-input data-formfield="DOB__c" type="date" label="Date of Birth" placeholder="Enter Date of Birth"></lightning-input><br/>
+        
+
+        <lightning-combobox
+        name="Record Type"
+        label="Select Record Type"
+        value={value}
+        placeholder="Select Record Type"
+        options={SelectRecordTypeOptions}
+        onchange={recordTypeHandler}
+        >
+        </lightning-combobox>
+            <lightning-combobox
+            name="Gender__c"
+            label="Select Gender"
+            value={value}
+            placeholder="Select Gender"
+            options={SelectGenderOptions}
+            onchange={genderHandler} >
+        </lightning-combobox>
+<br/>
+        <lightning-button variant="brand" label="Submit" onclick={handleApplicant}></lightning-button><br/>
+    </lightning-card>
+</template>
