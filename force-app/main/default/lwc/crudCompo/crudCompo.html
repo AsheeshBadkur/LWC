@@ -1,0 +1,81 @@
+<template>
+<lightning-card title="CRUD">
+    <lightning-button variant="brand" label="Create" icon-name="utility:new" onclick={createHandler}></lightning-button>&nbsp;
+    <lightning-button variant="success" label="Search" icon-name="utility:search" onclick={searchHandler}></lightning-button>&nbsp;
+    <lightning-button variant="brand-outline" label="Edit" icon-name="utility:edit" onclick={editHandler}></lightning-button>&nbsp;
+    <lightning-button variant="destructive" label="Delete" icon-name="utility:delete" onclick={deleteHandler}></lightning-button>&nbsp;<br/>
+
+
+    <!-- create inputs -->
+        <template if:true={createhandlertap} >
+    <br/><lightning-input data-formfield="Acc" type="text" label="Account Name" placeholder="Enter Account Name"></lightning-input><br/>
+        <lightning-combobox
+        name="Rating"
+        label="Select Rating"
+        value={value}
+        placeholder="Select Rating"
+        options={SelectRatingOptions}
+        onchange={dataHandler} >
+    
+    </lightning-combobox><br/>
+            <lightning-combobox
+        name="SLA__c"
+        label="Select SLA"
+        value={value}
+        placeholder="Select SLA"
+        options={SelectSLAOptions}
+        onchange={slaHandler} >
+
+    </lightning-combobox><br/>
+
+    <lightning-button variant="brand" label="Submit" onclick={handleAccount}></lightning-button><br/></template>
+
+    
+    <!-- Search Inputs -->
+    <template if:true={searchandlertap}>
+    <br/>
+    <template if:true={searchEnabled}>
+    <lightning-input data-formfield="Acc" type="text" label="Account Name" placeholder="Enter Name "></lightning-input><br/>
+    <lightning-button variant="success"  label="Search" onclick={searchAccHandler}></lightning-button><br/>
+    </template>
+    <br/>
+    <template if:true={onsearchAccHandler}>
+    <br/><lightning-input data-formfield="Acc" type="text" value={objAcc.Name} label="Account Name" disabled={editEnabled}></lightning-input><br/>
+        <lightning-combobox
+        name="Rating"
+        label="Rating"
+        value={objAcc.Rating}
+        options={SelectRatingOptions}
+        onchange={dataHandler}
+        disabled={editEnabled}>
+    
+    </lightning-combobox><br/>
+            <lightning-combobox
+            name="SLA__c"
+            label="SLA"
+            value={objAcc.SLA__c}
+            options={SelectSLAOptions}
+            onchange={slaHandler}
+            disabled={editEnabled}>
+<!-- Edit -->
+    </lightning-combobox><br/>
+    <template if:false={editEnabled}>
+    <lightning-button variant="brand" label="Edit" onclick={onclickEdit} ></lightning-button>
+    </template> <br/>
+<!-- Delete -->
+    <template if:true={deleteEnabled}>
+        <lightning-button variant="destructive" label="Delete" onclick={onclickDelete} ></lightning-button>
+    </template>
+</template>
+</template>
+<!-- Search Inputs End-->
+
+
+    <div class="exampleHolder">
+        <template if:true={showSpinner}>
+    <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+</template>
+</div>
+
+</lightning-card>
+</template>
