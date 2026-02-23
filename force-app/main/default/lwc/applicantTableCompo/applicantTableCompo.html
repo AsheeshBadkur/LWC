@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title="APP">
+        <lightning-input label="Select From Date" type="date" onblur={handleFromDateChange}></lightning-input>
+        <lightning-input label="Select To Date" type="date" onblur={handleToDateChange}></lightning-input><br/>
+        <template if:true={toDate}>
+            <table>
+                <thead>
+                    <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Created Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={appList} for:item="objApp">
+                    <tr key={objApp.Id}>
+                        <td>{objApp.First_Name__c}</td>
+                        <td>{objApp.Last_Name__c}</td>
+                        <td>{objApp.Gender__c}</td>
+                        <td><lightning-formatted-date-time value={objApp.CreatedDate}></lightning-formatted-date-time></td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+        </template>
+         <div class="exampleHolder">
+        <template if:true={showSpinner}>
+    <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+</template>
+</div>
+    </lightning-card>
+</template>

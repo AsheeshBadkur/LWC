@@ -15,4 +15,8 @@ public static Applicant__c searchApplicant(String objAppSearch){
     ];
 return objApp;
 }
+@AuraEnabled
+public static List<Applicant__c> getAllApplicants(Date fromDate, Date toDate){
+    return [SELECT Id, First_Name__c, Last_Name__c, Gender__c, CreatedDate FROM Applicant__c WHERE CreatedDate >= :fromDate AND CreatedDate <= :toDate];
+}
 }
