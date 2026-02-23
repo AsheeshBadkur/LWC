@@ -152,12 +152,17 @@ return [
 slaHandler( event ){
 this.objAcc.SLA__c=event.target.value;
 }
+
+nameHandler(event){
+    this.objAcc.Name = event.target.value;
+}
+
 handleAccount(){
 this.showSpinner=true;
 this.objAcc.Name=this.template.querySelector('lightning-input[data-formfield="Acc"]').value;
 createNewAccount({ accData: this.objAcc })
 .then(result=>{
-    this.objAcc=result;
+    this.objAcc = { sObjectType: 'Account' };
     this.showSuccessToast(result);
     this.showSpinner=false;
     this.createhandlertap=false;

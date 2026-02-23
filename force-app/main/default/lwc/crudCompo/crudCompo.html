@@ -40,7 +40,7 @@
     </template>
     <br/>
     <template if:true={onsearchAccHandler}>
-    <br/><lightning-input data-formfield="Acc" type="text" value={objAcc.Name} label="Account Name" disabled={editEnabled}></lightning-input><br/>
+    <br/><lightning-input data-formfield="Acc" type="text" value={objAcc.Name} onchange={nameHandler} label="Account Name" disabled={editEnabled}></lightning-input><br/>
         <lightning-combobox
         name="Rating"
         label="Rating"
