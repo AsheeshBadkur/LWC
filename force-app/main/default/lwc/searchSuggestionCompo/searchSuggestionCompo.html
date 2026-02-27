@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Search App">
+        <lightning-input data-formfield="searchApplicant" type="search" label="Search" placeholder="Enter Name" onkeyup={searchSuggestion}></lightning-input>
+            <template if:true={onKeyUp}>
+                <template for:each={appList} for:item="objApp">
+                    <p key={objApp.Id}>{objApp.First_Name__c}</p>
+                </template>
+            </template>
+    </lightning-card>
+</template>

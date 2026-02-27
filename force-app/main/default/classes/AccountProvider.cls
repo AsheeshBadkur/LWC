@@ -24,4 +24,13 @@ public static Account updateAccount(Account accData){
     Database.update(accData,false);
     return accData;
 }
+@AuraEnabled
+public static List<Contact> searchAccountId(Account accountId){
+    try {
+    Account acc = [  SELECT Id  FROM Account  WHERE Name = :accountId.Name LIMIT 1 ];
+    return [ SELECT Id, Name, Phone, Level__c, Fax FROM Contact WHERE AccountId = :acc.Id ];
+    } catch (Exception e) {
+        throw new AuraHandledException(e.getMessage());
+    }
+}
 }

@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Search Applicant">
+        <lightning-input data-formfield="Name" label="Applicant Name" type="text" placeholder="Enter Account Name"></lightning-input><br/>
+        <lightning-button variant="brand" label="Search" onclick={searchApplicant}></lightning-button><br/><br/>
+
+    <template if:true={onClickSearch}>
+        <lightning-datatable key-field="Id" data={appList} columns={columns}></lightning-datatable>
+    </template>
+</lightning-card>
+</template>
