@@ -1,0 +1,33 @@
+<template>
+<lightning-card title=" LNCDBTC11055 Account Table Data">
+    <lightning-combobox
+        name="Select Type"
+        label="Type"
+        value={value}
+        placeholder="Select Type"
+        options={typeOptions}
+        onchange={typeHandleChange} ></lightning-combobox><br/>
+        <table class="slds-table slds-table--bordered slds-table--striped">
+        <thead>
+        <tr>
+            <th scope="col" ><span class="slds-truncate">Name</span> </th>
+            <th scope="col" ><span class="slds-truncate">Rating</span> </th>
+            <th scope="col" ><span class="slds-truncate">SLA</span> </th>
+            <th scope="col" ><span class="slds-truncate">CreatedDate</span> </th>
+            <th scope="col" ><span class="slds-truncate">Type</span> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <template for:each={accList} for:item="objAcc">
+            <tr key={objAcc.Id}>
+                <td data-label="Name"><span class="slds-truncate">{objAcc.Name}</span></td>
+                <td data-label="Rating"><span class="slds-truncate">{objAcc.Rating}</span></td>
+                <td data-label="SLA"><span class="slds-truncate">{objAcc.SLA__c}</span></td>
+                <td data-label="CreatedDate"><span class="slds-truncate"><lightning-formatted-date-time value={objAcc.CreatedDate}></lightning-formatted-date-time></span></td>
+                <td data-label="Type"><span class="slds-truncate">{objAcc.Type}</span></td>
+            </tr>
+        </template>
+        </tbody>
+        </table>
+</lightning-card>
+</template>

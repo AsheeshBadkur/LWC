@@ -4,13 +4,19 @@ import searchSuggestion from '@salesforce/apex/ApplicantProvider.searchSuggestio
 export default class SearchSuggestionCompo extends LightningElement {
 objApp={sObjectType:'Applicant__c'};
 appList;
-onkeyUp=false;
-searchSuggestion(){
-    this.objApp.First_Name__c = this.template.querySelector('lightning-input[data-formfield="searchApplicant"]').value;
+
+columns = [
+    { label: 'Applicant Id', fieldName: 'Name' },
+    { label: 'First Name', fieldName: 'First_Name__c'},
+
+];
+
+searchSuggestion(event){
+    this.objApp.First_Name__c = event.target.value;
     searchSuggestion({searchKey: this.objApp.First_Name__c})
     .then(result=>{
         this.appList = result;
-        this.onkeyUp=true;
+       
     })
     .catch(error=>{
         console.error(error);

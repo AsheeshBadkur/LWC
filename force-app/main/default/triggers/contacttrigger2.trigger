@@ -13,6 +13,9 @@ trigger contacttrigger2 on Contact (before insert,before update) {
                 if (mapAcc.get(objCon.AccountId).Rating=='Hot'){
                     objCon.Level__c='Primary';
                 }
+                else if (mapAcc.get(objCon.AccountId).Rating=='Warm'){
+                    objCon.Level__c='Secondary';
+                }
                 else{
                     objCon.Level__c='';
                 }

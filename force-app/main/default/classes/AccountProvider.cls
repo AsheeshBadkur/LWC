@@ -33,4 +33,12 @@ public static List<Contact> searchAccountId(Account accountId){
         throw new AuraHandledException(e.getMessage());
     }
 }
+@AuraEnabled
+public static List<Account> typeAccount(Account objAcc){
+    try {
+        return [SELECT Name, Rating,SLA__c,CreatedDate,Type FROM Account WHERE Type = :objAcc.Type];
+    } catch (Exception e) {
+        throw new AuraHandledException(e.getMessage());
+    }
+}
 }

@@ -8,7 +8,7 @@ public with sharing class ApplicantProvider {
 public static Applicant__c searchApplicant(String objAppSearch){
 
     Applicant__c objApp = [
-        SELECT Id, First_Name__c, Last_Name__c, Gender__c, CreatedDate
+        SELECT Id, First_Name__c, Last_Name__c, Gender__c, CreatedDate , DOB__c,Email_Id__c
         FROM Applicant__c
         WHERE Name = :objAppSearch
         LIMIT 1
