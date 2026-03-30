@@ -41,4 +41,18 @@ public static List<Account> typeAccount(Account objAcc){
         throw new AuraHandledException(e.getMessage());
     }
 }
+@AuraEnabled(cacheable=true)
+public static List<Account> getAccountByName(String accountName) {
+     try{   return [
+            SELECT Id, Name, Industry, Phone
+            FROM Account
+            WHERE Name = :accountName
+            LIMIT 1
+        ];
+     } 
+     catch (Exception e) {
+         throw new AuraHandledException(e.getMessage());
+    }
 }
+}
+
