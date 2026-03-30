@@ -1,8 +1,10 @@
 <template>
-     <lightning-card title="APP LNCDBTC11055">
-        <lightning-input data-formfield="applicantId" label="Applicant Id" type="text" onblur={applicantHandler}></lightning-input> <br/>
+     <lightning-card title="APPLICANT">
+        <lightning-input data-formfield="applicantId" label="Applicant Id" type="text"></lightning-input> <br/>
+        <lightning-button label="Search" variant="search" icon-name="utility:search" onclick={applicantHandler}></lightning-button>
 
-      <c-addresscomm-compo address-data={app}></c-addresscomm-compo>
-
+<template if:true={showPopup}>
+      <c-addresscomm-compo address-data={app} onclose={close}></c-addresscomm-compo>
+</template>
         </lightning-card>
 </template>

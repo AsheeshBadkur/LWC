@@ -8,4 +8,10 @@ export default class AddresscommCompo extends LightningElement {
         { label: 'Address Line 2', fieldName: 'Address_Line_2__c', type: 'text' },
         { label: 'State', fieldName: 'State__c', type: 'text' },
     ];
+    closeModal(){
+        const myEvent = new CustomEvent("close",{
+            detail : false
+        });
+        this.dispatchEvent(myEvent);
+    }
 }
